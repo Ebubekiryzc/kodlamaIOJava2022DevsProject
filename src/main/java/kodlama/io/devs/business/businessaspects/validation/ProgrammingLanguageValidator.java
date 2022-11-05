@@ -1,6 +1,6 @@
 package kodlama.io.devs.business.businessaspects.validation;
 
-import kodlama.io.devs.business.exception.ProgrammingLanguageValidationException;
+import kodlama.io.devs.exception.classes.ProgrammingLanguageValidationException;
 import kodlama.io.devs.entities.concretes.ProgrammingLanguage;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
