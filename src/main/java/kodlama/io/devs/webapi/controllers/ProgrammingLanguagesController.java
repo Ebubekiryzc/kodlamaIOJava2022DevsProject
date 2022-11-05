@@ -1,11 +1,11 @@
 package kodlama.io.devs.webapi.controllers;
 
 import kodlama.io.devs.business.abstracts.ProgrammingLanguageService;
-import kodlama.io.devs.business.mapper.programminglanguage.ProgrammingLanguageMapper;
-import kodlama.io.devs.entities.concretes.ProgrammingLanguage;
-import kodlama.io.devs.webapi.requests.programminglanguage.ProgrammingLanguageCreateRequest;
-import kodlama.io.devs.webapi.requests.programminglanguage.ProgrammingLanguageUpdateRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import kodlama.io.devs.business.requests.programminglanguage.UpdateProgrammingLanguageRequest;
+import kodlama.io.devs.business.responses.programminglanguage.*;
+import kodlama.io.devs.business.requests.programminglanguage.CreateProgrammingLanguageRequest;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,38 +13,34 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/programmingLanguages")
+@RequiredArgsConstructor
 public class ProgrammingLanguagesController {
 
-    @Autowired
-    private ProgrammingLanguageService programmingLanguageService;
-
-    @Autowired
-    private ProgrammingLanguageMapper programmingLanguageMapper;
+    private final ProgrammingLanguageService programmingLanguageService;
 
     @GetMapping
-    public List<ProgrammingLanguage> getAll() {
+    public List<GetAllProgrammingLanguagesResponse> getAll() {
         return programmingLanguageService.getAll();
     }
 
     @GetMapping("/{id}")
-    public ProgrammingLanguage getById(@PathVariable("id") Long id) {
-        return programmingLanguageService.getById(id);
+    public ResponseEntity<GetByIdProgrammingLanguageResponse> getById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(programmingLanguageService.getById(id));
     }
 
     @PostMapping
-    public ProgrammingLanguage create(@RequestBody ProgrammingLanguageCreateRequest programmingLanguageCreateRequest) {
-        return programmingLanguageService.create(programmingLanguageMapper.programmingLanguageCreateRequestToProgrammingLanguage(programmingLanguageCreateRequest));
+    public ResponseEntity<CreateProgrammingLanguageResponse> create(CreateProgrammingLanguageRequest createProgrammingLanguageRequest) {
+        return ResponseEntity.ok(programmingLanguageService.create(createProgrammingLanguageRequest));
     }
 
     @PutMapping
-    public ProgrammingLanguage update(@RequestBody ProgrammingLanguageUpdateRequest programmingLanguageUpdateRequest) {
-        return programmingLanguageService.update(programmingLanguageMapper.programmingLanguageUpdateRequestToProgrammingLanguage(programmingLanguageUpdateRequest));
+    public ResponseEntity<UpdateProgrammingLanguageResponse> update(UpdateProgrammingLanguageRequest updateProgrammingLanguageRequest) {
+        return ResponseEntity.ok(programmingLanguageService.update(updateProgrammingLanguageRequest));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
-        programmingLanguageService.deleteById(id);
-        return ResponseEntity.ok("Deleted successfully.");
+    public ResponseEntity<DeleteProgrammingLanguageResponse> delete(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(programmingLanguageService.deleteById(id));
     }
 
 }
