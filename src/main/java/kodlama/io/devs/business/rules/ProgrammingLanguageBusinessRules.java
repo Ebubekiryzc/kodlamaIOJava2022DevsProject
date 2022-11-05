@@ -2,7 +2,7 @@ package kodlama.io.devs.business.rules;
 
 import kodlama.io.devs.dataaccess.abstracts.ProgrammingLanguageRepository;
 import kodlama.io.devs.entities.concretes.ProgrammingLanguage;
-import kodlama.io.devs.exception.classes.ProgrammingLanguageNotFoundException;
+import kodlama.io.devs.exception.classes.programminglanguage.ProgrammingLanguageNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

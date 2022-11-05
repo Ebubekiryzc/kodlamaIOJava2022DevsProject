@@ -1,4 +1,4 @@
-package kodlama.io.devs.exception.classes;
+package kodlama.io.devs.exception.classes.programminglanguage;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
