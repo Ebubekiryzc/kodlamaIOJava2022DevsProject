@@ -1,4 +1,4 @@
-package kodlama.io.devs.business.exception;
+package kodlama.io.devs.exception.classes;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
