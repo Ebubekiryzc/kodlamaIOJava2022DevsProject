@@ -1,0 +1,25 @@
+package kodlama.io.devs.business.mapper.programmingtechnologytype;
+
+import kodlama.io.devs.business.requests.programmingtechnologytype.CreateProgrammingTechnologyTypeRequest;
+import kodlama.io.devs.business.requests.programmingtechnologytype.UpdateProgrammingTechnologyTypeRequest;
+import kodlama.io.devs.business.responses.programmingtechnologytype.*;
+import kodlama.io.devs.entities.concretes.ProgrammingTechnologyType;
+import org.mapstruct.Mapper;
+
+@Mapper(componentModel = "spring")
+public interface ProgrammingTechnologyTypeMapper {
+
+    ProgrammingTechnologyType createProgrammingTechnologyTypeRequestToProgrammingTechnologyType(CreateProgrammingTechnologyTypeRequest createProgrammingTechnologyTypeRequest);
+
+    ProgrammingTechnologyType updateProgrammingTechnologyTypeRequestToProgrammingTechnologyType(UpdateProgrammingTechnologyTypeRequest updateProgrammingTechnologyTypeRequest);
+
+    GetAllProgrammingTechnologyTypesResponse programmingTechnologyTypeToGetAllProgrammingTechnologyTypesResponse(ProgrammingTechnologyType ProgrammingTechnologyType);
+
+    GetByIdProgrammingTechnologyTypeResponse programmingTechnologyTypeToGetByIdProgrammingTechnologyTypeResponse(ProgrammingTechnologyType ProgrammingTechnologyType);
+
+    CreateProgrammingTechnologyTypeResponse programmingTechnologyTypeToCreateProgrammingTechnologyTypeResponse(ProgrammingTechnologyType ProgrammingTechnologyType);
+
+    UpdateProgrammingTechnologyTypeResponse programmingTechnologyTypeToUpdateProgrammingTechnologyTypeResponse(ProgrammingTechnologyType ProgrammingTechnologyType);
+
+    DeleteProgrammingTechnologyTypeResponse programmingTechnologyTypeToDeleteProgrammingTechnologyTypeResponse(ProgrammingTechnologyType ProgrammingTechnologyType);
+}
