@@ -1,6 +1,7 @@
 package kodlama.io.devs.business.concretes;
 
 import kodlama.io.devs.business.abstracts.ProgrammingLanguageService;
+import kodlama.io.devs.business.customannotations.ValidateRequest;
 import kodlama.io.devs.business.mapper.programminglanguage.ProgrammingLanguageMapper;
 import kodlama.io.devs.business.requests.programminglanguage.CreateProgrammingLanguageRequest;
 import kodlama.io.devs.business.requests.programminglanguage.UpdateProgrammingLanguageRequest;
@@ -37,6 +38,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
     }
 
     @Override
+    @ValidateRequest
     public CreateProgrammingLanguageResponse create(CreateProgrammingLanguageRequest createRequest) {
         ProgrammingLanguage programmingLanguage = programmingLanguageMapper
                 .createProgrammingLanguageRequestToProgrammingLanguage(createRequest);
@@ -49,6 +51,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService {
     }
 
     @Override
+    @ValidateRequest
     public UpdateProgrammingLanguageResponse update(UpdateProgrammingLanguageRequest updateRequest) {
         programmingLanguageBusinessRules.programmingLanguageMustExistWhenRequested(updateRequest.getId());
 
